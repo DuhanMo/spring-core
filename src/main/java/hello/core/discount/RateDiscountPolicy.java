@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-package hello.core.discount;public class RateDiscountPolicy {
-=======
 package hello.core.discount;
 
 import hello.core.member.Grade;
@@ -19,5 +16,4 @@ public class RateDiscountPolicy implements DiscountPolicy {
         }
     }
 
->>>>>>> a22ef5c1593b771621aac5f3913bc74e1c32d452
 }

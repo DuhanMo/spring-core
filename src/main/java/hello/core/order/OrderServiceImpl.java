@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-package hello.core.order;public class OrderServiceImpl {
-=======
 package hello.core.order;
 
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
@@ -26,5 +21,5 @@ public class OrderServiceImpl implements OrderService{
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
->>>>>>> a22ef5c1593b771621aac5f3913bc74e1c32d452
+
 }
