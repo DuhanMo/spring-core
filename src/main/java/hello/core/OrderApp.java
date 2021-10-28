@@ -1,6 +1,5 @@
 package hello.core;
 
-import hello.core.config.AppConfig;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
@@ -12,16 +11,20 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class OrderApp {
 
     public static void main(String[] args) {
-
+        /**
+         * 스프링을 이용하지 않고
+         * DI를 지원해주는 AppConfig를 직접 이용
+         * AppConfig appConfig = new AppConfig();
+         * MemberService memberService = appConfig.memberService();
+         * OrderService orderService = appConfig.orderService();
+         */
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
         OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
-
-        Member member = new Member(1L, "memberA", Grade.VIP);
+        long memberId = 1L;
+        Member member = new Member(memberId, "memberA", Grade.VIP);
         memberService.join(member);
-        Order order = orderService.createOrder(1L, "모니터", 20000);
-
-        System.out.println(order.toString());
+        Order order = orderService.createOrder(memberId, "itemA", 10000);
+        System.out.println("order = " + order);
     }
-
 }
